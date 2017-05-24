@@ -1,2 +1,8 @@
 *.tcl
 *.xco
+*.asy
+*.ncf
+*.xise
+*.veo
+*.gise
+*.sym
