@@ -12,3 +12,15 @@
 *.exe
 *.ndo
 *.wdb
+*.lso
+*.bmm
+*.stx
+*.xst
+*.bld
+*.grf
+*.html
+*.xml
+*.xrpt
+*.ngc
+*.txt
+*.nlf
