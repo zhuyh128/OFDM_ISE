@@ -50,3 +50,17 @@
 *.ngm
 *.psr
 *.csv
+*.version
+*.xsl
+*.cfg
+*.xmsgs
+*.xsl
+*.sh
+*.bat
+*.do
+*.key
+*.cgp
+*.bit
+*.drc
+*.ini
+*.bgn
