@@ -47,7 +47,7 @@ module OBG (
     //------------------------------------------------
     //% instantiate SSG module
     SSG U_SSG (
-//		  .done_rst(ssg_done_rst),
+		  .done_rst(ssg_done_rst),
         .clk(ssg_clk),
         .rst(ssg_rst),
         .di_len(ssg_di_len),
@@ -61,16 +61,16 @@ module OBG (
 
     //% instantiate OPG module
     OPG U_OPG (
-//		  .done_rst(pld_done_rst),
+		  .done_rst(pld_done_rst),
         .clk(pld_clk),
         .rst(pld_rst),
         .rd_en(new_frame),
         .do(pld_do),
-        .do_vld(pld_do_vld)
-//		  .done_flag(pld_done_flag)
+        .do_vld(pld_do_vld),
+		  .done_flag(pld_done_flag)
         );
 		 
-/*	always @(posedge pld_clk or posedge ssg_clk) begin
+	always @(posedge pld_clk or posedge ssg_clk) begin
 	    if(pld_done_flag&&ssg_done_flag) begin
 		     ssg_done_rst <= 1;
 			  pld_done_rst <= 1;
@@ -81,7 +81,7 @@ module OBG (
 			  pld_done_rst <= 0;
 		 end
 	end
-*/
+
     // always @(posedge pld_clk or posedge pld_rst) begin
     //     if (pld_rst) begin
     //         // reset

@@ -28,7 +28,7 @@
 //% 
 //% @note output is LSB first
 module SSG (
-//	 input						  done_rst,
+	 input						  done_rst,
     input                    clk,       //% working clock
     input                    rst,       //% asynchronous reset, active high
     input        [15 : 0]    di_len,    //% length of PSDU
@@ -56,8 +56,8 @@ module SSG (
 
     reg    [NUM_TOTAL_BITS-1 : 0]   signal_bits;    //% signal segment bits
     //% generate the signal bits
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             signal_bits <= 0;
         end
@@ -72,8 +72,8 @@ module SSG (
     reg     indx_en;                        //% output index count enable
     reg     [INDX_WIDTH-1 : 0]   indx;      //% output index
     //% get the output index enable
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             indx_en <= 0;
         end
@@ -88,8 +88,8 @@ module SSG (
     end
 
     //% get the output index
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             indx <= 0;
         end
@@ -104,8 +104,8 @@ module SSG (
     end
 
     //% data output serial
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             do <= 0;
         end
@@ -115,8 +115,8 @@ module SSG (
     end
 
     //% output the do_init
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             do_init <= 0;
         end
@@ -126,8 +126,8 @@ module SSG (
     end
 
     //% get data output valid
-    always @(posedge clk or posedge rst ) begin
-        if (rst) begin
+    always @(posedge clk or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             do_vld <= 0;
         end

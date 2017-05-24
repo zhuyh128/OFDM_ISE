@@ -1,0 +1,19 @@
+
+#Created by Constraints Editor (xc7k325t-ffg676-2) - 2016/10/14
+NET "clk_in_p" TNM_NET = "clk_in_p";
+TIMESPEC "TS_clk_in_p" = PERIOD "clk_in_p" 200 MHz HIGH 50%;
+
+
+NET  clk_in_p        LOC = AC9   |IOSTANDARD = LVDS;
+NET  clk_in_n        LOC = AD9   |IOSTANDARD = LVDS;
+
+Net  rst_In         LOC = E21  |IOSTANDARD = LVCMOS15 |TIG;
+
+
+Net  do_payload         LOC = B21  |IOSTANDARD = LVCMOS15 |TIG;
+
+Net  do_payload_vld     LOC = C21  |IOSTANDARD = LVCMOS15 |TIG;
+
+Net  do_signal          LOC = J24  |IOSTANDARD = LVCMOS15 |TIG;
+
+Net  do_signal_vld      LOC = J25  |IOSTANDARD = LVCMOS15 |TIG;
