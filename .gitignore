@@ -42,3 +42,11 @@
 *.ut
 *.xdl
 *.xpi
+*.debug
+*.xwbt
+*.blc
+*.map
+*.mrp
+*.ngm
+*.psr
+*.csv
