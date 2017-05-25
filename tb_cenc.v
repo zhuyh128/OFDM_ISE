@@ -64,11 +64,6 @@ module tb_cenc;
 	integer  cenc_sig_output;
    integer  cenc_pld_output;
 	
-	integer  in_data_sig;				//Modified by baiyf
-	integer  in_data_pld;
-	integer  read_cnt;				
-	integer  frame_num=0;
-	
    reg signal  [0:32-1];				
    reg payload  [0:4320-1];
 	
@@ -92,18 +87,6 @@ module tb_cenc;
 		// Add stimulus here
 		cenc_sig_output = $fopen("./debug_data/cenc_sig_output.dat", "w");
       cenc_pld_output = $fopen("./debug_data/cenc_pld_output.dat", "w");
-		
-		in_data_sig=$fopen("./debug_data/obg_output.dat","r+b");					//Modified by baiyf
-		in_data_pld=$fopen("./debug_data/obg_pld_output.dat","r+b");
-		for(read_cnt=0;read_cnt<32;read_cnt=read_cnt+1)
-		begin
-			 $fscanf(in_data_sig,"%b",signal[read_cnt]);
-		end
-		
-		for(read_cnt=0;read_cnt<4320;read_cnt=read_cnt+1)
-		begin
-		    $fscanf(in_data_pld,"%b",payload[read_cnt]);
-		end				
 		
 		$readmemb("./debug_data/obg_output.dat",signal);
 		$readmemb("./debug_data/obg_pld_output.dat",payload);
@@ -250,9 +233,6 @@ module tb_cenc;
         end
     end*/
 
-
-
-
     // ------------------------------------------------------------------------
     // save result
     always @(posedge sce_clk_o or posedge sce_rst) begin
@@ -267,27 +247,5 @@ module tb_cenc;
         end
     end
 	 
-	 
-	 always										//Modified by baiyf	
-		wait((cnt==MAX)&&(frame_num<`NF-1))				
-		begin
-			sce_rst=1;
-			pld_rst=1;
-			
-			#1000	
-			for(read_cnt=0;read_cnt<32;read_cnt=read_cnt+1)
-			begin
-				$fscanf(in_data_sig,"%b",signal[read_cnt]);
-			end
-		
-			for(read_cnt=0;read_cnt<4320;read_cnt=read_cnt+1)
-			begin
-				 $fscanf(in_data_pld,"%b",payload[read_cnt]);
-			end
-				
-			sce_rst=0;
-			pld_rst=0;
-			frame_num=frame_num+1;
-		end
-			
+
 endmodule

@@ -17,6 +17,7 @@
 //% @note clk_i & clk_o should have the same phase, and Fclk_o = 3*Fclk_i ! 
 //% 
 module SCE (
+	 input					done_rst,
     input               clk_i,      //% clock for input data
     input               clk_o,      //% clock for output data
     input               rst,        //% asynchronous reset to clk_i, active high
@@ -36,8 +37,8 @@ module SCE (
 
     reg     dat;       //% local tmp for di
     //% reg the input data for one clock to initilize the LSR
-    always @(posedge clk_i or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk_i or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             dat <= 0;
         end
@@ -48,8 +49,8 @@ module SCE (
 
     reg     dat_vld;    //% local tmp data valid
     //% align the dat & dat_vld
-    always @(posedge clk_i or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk_i or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             dat_vld <= 0;
         end
@@ -60,8 +61,8 @@ module SCE (
 
     reg     [`K-1 : 0]      LSR;    //% linear shift reg
     //% initilize & shift the LSR
-    always @(posedge clk_i or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk_i or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             LSR <= di_init;
         end
@@ -81,8 +82,8 @@ module SCE (
     localparam  ENC_DAT_WIDTH = 3;   //% (3, 1, 6) tail-biting, constraint = 6
     reg     [ENC_DAT_WIDTH-1 : 0]    enc_dat;   //% encoded data, 1 --> 3 bits
     //% tail-biting convolution encode
-    always @(posedge clk_i or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk_i or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             enc_dat <= 0;
         end
@@ -97,11 +98,11 @@ module SCE (
             end
         end
     end
-
+	 
     reg         enc_dat_vld;    //% encoded data valid flag
     //% align the enc_dat & enc_dat_vld
-    always @(posedge clk_i or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk_i or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             enc_dat_vld <= 0;
         end
@@ -117,8 +118,8 @@ module SCE (
     localparam  MAX           = 2;   //% (3, 1, 6) tail-biting, max index = 2
     reg     [INDX_WIDTH-1 : 0]      indx;       //% output index
     //% generate the pre_do index
-    always @(posedge clk_o or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk_o or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             indx <= 0;
         end
@@ -135,8 +136,8 @@ module SCE (
 
     reg     pre_do;         //% one result of tail-biting encoder
     //% save the tmp result
-    always @(posedge clk_o or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk_o or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             pre_do <= 0;
         end
@@ -147,8 +148,8 @@ module SCE (
 
     reg     pre_do_vld;     //% pre_do valid flag
     //% align the pre_do & pre_do_ vld
-    always @(posedge clk_o or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk_o or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             pre_do_vld <= 0;
         end
@@ -162,8 +163,8 @@ module SCE (
 
     reg  [6:0]  wr_addr;     //% index to save pre_do(96 bits)
     //% get the value of wr_addr
-    always @(posedge clk_o or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk_o or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             wr_addr <= 0;
         end
@@ -179,8 +180,8 @@ module SCE (
 
     reg     [95:0]  save_dat;   //% reg saving pre_do
     //% save pre_do
-    always @(posedge clk_o or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk_o or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             save_dat[wr_addr] <= 0;
         end
@@ -197,8 +198,8 @@ module SCE (
     reg     symbol_cnt_en;
     localparam  SYMBOL_CNT_MAX = 9;     //% repeat 10 times
     reg  [3:0]  symbol_cnt;             //% count repeat times
-    always @(posedge clk_o or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk_o or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             symbol_cnt_en <= 0;
         end
@@ -213,8 +214,8 @@ module SCE (
     end
 
     //% count the output times
-    always @(posedge clk_o or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk_o or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             symbol_cnt <= 0;
         end
@@ -234,8 +235,8 @@ module SCE (
     localparam  RD_ADDR_MAX = 95;
     reg     [6:0]   rd_addr;     //% reading address
     //% get the read enable flag value
-    always @(posedge clk_o or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk_o or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             rd_en <= 0;
         end
@@ -250,8 +251,8 @@ module SCE (
     end
 
     //% get the reading address value
-    always @(posedge clk_o or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk_o or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             rd_addr <= 0;
         end
@@ -268,7 +269,7 @@ module SCE (
     end
 
     //% ouptut do
-    always @(posedge clk_o or posedge rst) begin
+    always @(posedge clk_o or posedge rst or posedge done_rst) begin
         if (rst) begin
             // reset
             do <= 0;

@@ -7,17 +7,17 @@
 // \   \   \/     Version: P.20131013
 //  \   \         Application: netgen
 //  /   /         Filename: CEST_MUL2.v
-// /___/   /\     Timestamp: Fri Oct 14 10:12:11 2016
+// /___/   /\     Timestamp: Wed May 24 17:37:29 2017
 // \   \  /  \ 
 //  \___\/\___\
 //             
 // Command	: -w -sim -ofmt verilog E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/CEST_MUL2.ngc E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/CEST_MUL2.v 
-// Device	: 7k325tffg676-2
+// Device	: 7k160tffg676-1
 // Input file	: E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/CEST_MUL2.ngc
 // Output file	: E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/CEST_MUL2.v
 // # of Modules	: 1
 // Design Name	: CEST_MUL2
-// Xilinx        : D:\Xilinx\14.7\ISE_DS\ISE\
+// Xilinx        : C:\Xilinx\14.7\ISE_DS\ISE\
 //             
 // Purpose:    
 //     This verilog netlist is a verification model and uses simulation 

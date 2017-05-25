@@ -7,17 +7,17 @@
 // \   \   \/     Version: P.20131013
 //  \   \         Application: netgen
 //  /   /         Filename: PNC_DIV.v
-// /___/   /\     Timestamp: Thu Oct 13 19:41:02 2016
+// /___/   /\     Timestamp: Wed May 24 19:12:18 2017
 // \   \  /  \ 
 //  \___\/\___\
 //             
 // Command	: -w -sim -ofmt verilog E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/PNC_DIV.ngc E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/PNC_DIV.v 
-// Device	: 7k325tffg676-2
+// Device	: 7k160tffg676-1
 // Input file	: E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/PNC_DIV.ngc
 // Output file	: E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/PNC_DIV.v
 // # of Modules	: 1
 // Design Name	: PNC_DIV
-// Xilinx        : D:\Xilinx\14.7\ISE_DS\ISE\
+// Xilinx        : C:\Xilinx\14.7\ISE_DS\ISE\
 //             
 // Purpose:    
 //     This verilog netlist is a verification model and uses simulation 

@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////
-// Copyright (c) 2016 Xilinx, Inc.
+// Copyright (c) 2017 Xilinx, Inc.
 // All Rights Reserved
 ///////////////////////////////////////////////////////////////////////////////
 //   ____  ____
@@ -8,7 +8,7 @@
 // \   \   \/     Version    : 14.7
 //  \   \         Application: Xilinx CORE Generator
 //  /   /         Filename   : vio0.v
-// /___/   /\     Timestamp  : Mon Oct 24 19:35:12 China Standard Time 2016
+// /___/   /\     Timestamp  : Wed May 24 20:07:45 中国标准时间 2017
 // \   \  /  \
 //  \___\/\___\
 //

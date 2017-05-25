@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////
-// Copyright (c) 2016 Xilinx, Inc.
+// Copyright (c) 2017 Xilinx, Inc.
 // All Rights Reserved
 ///////////////////////////////////////////////////////////////////////////////
 //   ____  ____
@@ -8,7 +8,7 @@
 // \   \   \/     Version    : 14.7
 //  \   \         Application: Xilinx CORE Generator
 //  /   /         Filename   : ilao.v
-// /___/   /\     Timestamp  : Tue Nov 01 15:07:57 China Standard Time 2016
+// /___/   /\     Timestamp  : Wed May 24 19:56:54 中国标准时间 2017
 // \   \  /  \
 //  \___\/\___\
 //

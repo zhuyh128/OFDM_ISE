@@ -7,17 +7,17 @@
 // \   \   \/     Version: P.20131013
 //  \   \         Application: netgen
 //  /   /         Filename: CEST_DIVIDER3.v
-// /___/   /\     Timestamp: Fri Oct 14 10:24:09 2016
+// /___/   /\     Timestamp: Wed May 24 17:09:56 2017
 // \   \  /  \ 
 //  \___\/\___\
 //             
 // Command	: -w -sim -ofmt verilog E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/CEST_DIVIDER3.ngc E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/CEST_DIVIDER3.v 
-// Device	: 7k325tffg676-2
+// Device	: 7k160tffg676-1
 // Input file	: E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/CEST_DIVIDER3.ngc
 // Output file	: E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/CEST_DIVIDER3.v
 // # of Modules	: 1
 // Design Name	: CEST_DIVIDER3
-// Xilinx        : D:\Xilinx\14.7\ISE_DS\ISE\
+// Xilinx        : C:\Xilinx\14.7\ISE_DS\ISE\
 //             
 // Purpose:    
 //     This verilog netlist is a verification model and uses simulation 
@@ -3478,13 +3478,13 @@ module CEST_DIVIDER3 (
     .C(aclk),
     .CE(\blk00000001/sig00000052 ),
     .D(\blk00000001/sig00000b17 ),
-    .Q(\blk00000001/sig0000007c )
+    .Q(\blk00000001/sig0000007b )
   );
   SRLC32E #(
     .INIT ( 32'h00000000 ))
   \blk00000001/blk00000ac8  (
     .CLK(aclk),
-    .D(\blk00000001/sig000000ef ),
+    .D(\blk00000001/sig000000ee ),
     .CE(\blk00000001/sig00000052 ),
     .Q(\blk00000001/sig00000b17 ),
     .Q31(\NLW_blk00000001/blk00000ac8_Q31_UNCONNECTED ),
@@ -3520,7 +3520,7 @@ module CEST_DIVIDER3 (
     .INIT ( 32'h00000000 ))
   \blk00000001/blk00000ac4  (
     .CLK(aclk),
-    .D(\blk00000001/sig000000ee ),
+    .D(\blk00000001/sig000000ef ),
     .CE(\blk00000001/sig00000052 ),
     .Q(\blk00000001/sig00000b15 ),
     .Q31(\NLW_blk00000001/blk00000ac4_Q31_UNCONNECTED ),
@@ -3953,24 +3953,24 @@ module CEST_DIVIDER3 (
     .INIT ( 8'h96 ))
   \blk00000001/blk00000a6e  (
     .I0(\blk00000001/sig00000068 ),
-    .I1(\blk00000001/sig0000007b ),
-    .I2(\blk00000001/sig0000007c ),
+    .I1(\blk00000001/sig00000b14 ),
+    .I2(\blk00000001/sig0000007b ),
     .O(\blk00000001/sig00000adb )
   );
   LUT3 #(
     .INIT ( 8'h96 ))
   \blk00000001/blk00000a6d  (
     .I0(\blk00000001/sig00000067 ),
-    .I1(\blk00000001/sig0000007b ),
-    .I2(\blk00000001/sig0000007c ),
+    .I1(\blk00000001/sig00000b14 ),
+    .I2(\blk00000001/sig0000007b ),
     .O(\blk00000001/sig00000ada )
   );
   LUT3 #(
     .INIT ( 8'h96 ))
   \blk00000001/blk00000a6c  (
     .I0(\blk00000001/sig00000066 ),
-    .I1(\blk00000001/sig0000007b ),
-    .I2(\blk00000001/sig0000007c ),
+    .I1(\blk00000001/sig00000b14 ),
+    .I2(\blk00000001/sig0000007b ),
     .O(\blk00000001/sig00000ad9 )
   );
   LUT3 #(
@@ -3978,7 +3978,7 @@ module CEST_DIVIDER3 (
   \blk00000001/blk00000a6b  (
     .I0(\blk00000001/sig00000065 ),
     .I1(\blk00000001/sig00000b14 ),
-    .I2(\blk00000001/sig0000007c ),
+    .I2(\blk00000001/sig0000007b ),
     .O(\blk00000001/sig00000ad8 )
   );
   LUT3 #(
@@ -3986,7 +3986,7 @@ module CEST_DIVIDER3 (
   \blk00000001/blk00000a6a  (
     .I0(\blk00000001/sig00000064 ),
     .I1(\blk00000001/sig00000b14 ),
-    .I2(\blk00000001/sig0000007c ),
+    .I2(\blk00000001/sig0000007b ),
     .O(\blk00000001/sig00000ad7 )
   );
   LUT3 #(
@@ -3994,7 +3994,7 @@ module CEST_DIVIDER3 (
   \blk00000001/blk00000a69  (
     .I0(\blk00000001/sig00000063 ),
     .I1(\blk00000001/sig00000b14 ),
-    .I2(\blk00000001/sig0000007c ),
+    .I2(\blk00000001/sig0000007b ),
     .O(\blk00000001/sig00000ad6 )
   );
   LUT3 #(
@@ -4002,7 +4002,7 @@ module CEST_DIVIDER3 (
   \blk00000001/blk00000a68  (
     .I0(\blk00000001/sig00000062 ),
     .I1(\blk00000001/sig00000b14 ),
-    .I2(\blk00000001/sig0000007c ),
+    .I2(\blk00000001/sig0000007b ),
     .O(\blk00000001/sig00000ad5 )
   );
   LUT2 #(
@@ -7002,7 +7002,7 @@ module CEST_DIVIDER3 (
     .INIT ( 4'h6 ))
   \blk00000001/blk000008e8  (
     .I0(\blk00000001/sig00000b14 ),
-    .I1(\blk00000001/sig0000007c ),
+    .I1(\blk00000001/sig0000007b ),
     .O(\blk00000001/sig00000054 )
   );
   LUT2 #(
@@ -21191,7 +21191,7 @@ module CEST_DIVIDER3 (
   \blk00000001/blk00000053  (
     .C(aclk),
     .D(\blk00000001/sig000000ed ),
-    .Q(\blk00000001/sig0000007b )
+    .Q(\blk00000001/sig0000007c )
   );
   FD #(
     .INIT ( 1'b0 ))

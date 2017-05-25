@@ -16,25 +16,29 @@
 //% @note length of input bits is 8640, and the padding bits is the first 960 
 //%       bits of it.
 module PPU (
+	 input					done_rst,
     input               clk,        //% working clock
     input               rst,        //% reset, active high
     input               di,         //% input encoded data of payload
     input               di_vld,     //% input data valid
     output  reg         do,         //% output data
     output  reg         do_vld,     //% output data valid
-    output  reg  [3:0]  do_sym_num  // number of payload symbol = 5
+    output  reg  [3:0]  do_sym_num,  // number of payload symbol = 5
+	 output  reg         done_flag
 	 );
 
 //==============================================================================
 // Main Body of Code
-
+	 
+	 reg neg_do_vld;						//Modified by baiyf
+	 
     //----------------------------------
     // write first 960 bits into FIFO
 
     reg  [13:0]  di_cnt;
 
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             di_cnt <= 14'd0;
         end
@@ -52,8 +56,8 @@ module PPU (
     reg  wr_en;
     wire full;
 
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             din <= 0;
         end
@@ -62,8 +66,8 @@ module PPU (
         end
     end
 
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             wr_en <= 0;
         end
@@ -85,8 +89,8 @@ module PPU (
     wire empty;
     wire valid;
 
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             rd_en <= 0;
         end
@@ -103,8 +107,8 @@ module PPU (
 
     //----------------------------------------
     // generate output
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             do_sym_num <= 0;
         end
@@ -118,8 +122,8 @@ module PPU (
     reg  data;
     reg  data_vld;
 
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             data <= 0;
             data_vld <= 0;
@@ -130,8 +134,8 @@ module PPU (
         end
     end
 
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             do <= 0;
             do_vld <= 0;
@@ -147,6 +151,18 @@ module PPU (
         end
     end
 	
+	always @(posedge clk) begin														//Modified by baiyf
+		neg_do_vld <= !do_vld;
+	end
+	
+	always @(posedge neg_do_vld or posedge done_rst or posedge rst) begin
+		if(rst||done_rst) begin
+			done_flag <= 0;
+		end
+		else begin
+			done_flag <= 1;
+		end
+	end
 	
     //----------------------------------------
     PPU_FIFO U_PPU_FIFO (

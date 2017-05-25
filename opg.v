@@ -24,13 +24,13 @@
 //% actually, it should be moved to FMAC module 
 
 module OPG(
-//	 input done_rst,
+	 input done_rst,
     input clk,          //% working clock
     input rst,          //% reset
     input rd_en,        //% new frame 
     output reg do,      //% origin payload data output
-    output reg do_vld   //% output origin payload data valid
-//	 output reg done_flag
+    output reg do_vld,   //% output origin payload data valid
+	 output reg done_flag
     );
 
 //==============================================================================
@@ -42,8 +42,8 @@ module OPG(
     reg         rd_en_r2;
     wire        rd_en_posedge;
 
-    always @(posedge clk or posedge rst ) begin
-        if (rst) begin
+    always @(posedge clk or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             rd_en_r1 <= 0;
             rd_en_r2 <= 0;
@@ -63,8 +63,8 @@ module OPG(
     reg  [12:0]  addr;
     wire         dout;
 
-    always @(posedge clk or posedge rst ) begin
-        if (rst) begin
+    always @(posedge clk or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             addr_en <= 0;
         end
@@ -81,8 +81,8 @@ module OPG(
         end
     end
 
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
+    always @(posedge clk or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             addr <= 13'd0;
         end
@@ -99,8 +99,8 @@ module OPG(
     //----------------------------------------------
     // generate output
 
-    always @(posedge clk or posedge rst ) begin
-        if (rst) begin
+    always @(posedge clk or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             do <= 0;
         end
@@ -112,8 +112,8 @@ module OPG(
     reg     dout_vld_pre;
     reg     dout_vld;
 
-    always @(posedge clk or posedge rst ) begin
-        if (rst) begin
+    always @(posedge clk or posedge rst or posedge done_rst) begin
+        if (rst||done_rst) begin
             // reset
             dout_vld_pre <= 0;
             dout_vld <= 0;
@@ -126,17 +126,16 @@ module OPG(
         end
     end
 	
-/*	 always @(posedge clk or posedge rst ) begin
+	 always @(posedge clk or posedge rst ) begin							//Modified by baiyf
 	     if(rst) begin
 		      done_flag<=0;
 		  end
 		  else begin
-		      if(addr==4319)begin
-				
-		  #2    done_flag<=1;
+		      if(addr==4321)begin
+					done_flag<=1;
 				end
 		  end
-	 end*/
+	 end
     // -------------------------------------------------------------------------
 
     // OPG_ROM U_OPG_ROM (

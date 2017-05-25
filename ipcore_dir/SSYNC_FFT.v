@@ -7,17 +7,17 @@
 // \   \   \/     Version: P.20131013
 //  \   \         Application: netgen
 //  /   /         Filename: SSYNC_FFT.v
-// /___/   /\     Timestamp: Thu Oct 13 15:17:18 2016
+// /___/   /\     Timestamp: Wed May 24 19:40:29 2017
 // \   \  /  \ 
 //  \___\/\___\
 //             
 // Command	: -w -sim -ofmt verilog E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/SSYNC_FFT.ngc E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/SSYNC_FFT.v 
-// Device	: 7k325tffg676-2
+// Device	: 7k160tffg676-1
 // Input file	: E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/SSYNC_FFT.ngc
 // Output file	: E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/SSYNC_FFT.v
 // # of Modules	: 1
 // Design Name	: SSYNC_FFT
-// Xilinx        : D:\Xilinx\14.7\ISE_DS\ISE\
+// Xilinx        : C:\Xilinx\14.7\ISE_DS\ISE\
 //             
 // Purpose:    
 //     This verilog netlist is a verification model and uses simulation 
@@ -15397,13 +15397,13 @@ event_data_out_channel_halt, s_axis_config_tdata, s_axis_data_tdata, m_axis_data
     .O(\blk00000001/blk0000017b/sig000003e1 )
   );
   LUT6 #(
-    .INIT ( 64'hAABAAAAA00AA00AA ))
+    .INIT ( 64'hAAAABAAA0000AAAA ))
   \blk00000001/blk0000017b/blk000001f6  (
     .I0(\blk00000001/sig0000013b ),
     .I1(\blk00000001/blk0000017b/sig00000399 ),
     .I2(\blk00000001/blk0000017b/sig00000398 ),
-    .I3(\blk00000001/blk0000017b/sig000003e1 ),
-    .I4(\blk00000001/blk0000017b/sig000003e2 ),
+    .I3(\blk00000001/blk0000017b/sig000003e2 ),
+    .I4(\blk00000001/blk0000017b/sig000003e1 ),
     .I5(\blk00000001/sig00000122 ),
     .O(\blk00000001/blk0000017b/sig000003e3 )
   );

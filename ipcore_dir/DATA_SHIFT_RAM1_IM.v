@@ -7,17 +7,17 @@
 // \   \   \/     Version: P.20131013
 //  \   \         Application: netgen
 //  /   /         Filename: DATA_SHIFT_RAM1_IM.v
-// /___/   /\     Timestamp: Thu Oct 13 14:18:25 2016
+// /___/   /\     Timestamp: Wed May 24 18:08:48 2017
 // \   \  /  \ 
 //  \___\/\___\
 //             
 // Command	: -w -sim -ofmt verilog E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/DATA_SHIFT_RAM1_IM.ngc E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/DATA_SHIFT_RAM1_IM.v 
-// Device	: 7k325tffg676-2
+// Device	: 7k160tffg676-1
 // Input file	: E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/DATA_SHIFT_RAM1_IM.ngc
 // Output file	: E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/DATA_SHIFT_RAM1_IM.v
 // # of Modules	: 1
 // Design Name	: DATA_SHIFT_RAM1_IM
-// Xilinx        : D:\Xilinx\14.7\ISE_DS\ISE\
+// Xilinx        : C:\Xilinx\14.7\ISE_DS\ISE\
 //             
 // Purpose:    
 //     This verilog netlist is a verification model and uses simulation 

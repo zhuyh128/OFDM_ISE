@@ -7,17 +7,17 @@
 // \   \   \/     Version: P.20131013
 //  \   \         Application: netgen
 //  /   /         Filename: LLCR_MULT.v
-// /___/   /\     Timestamp: Thu Oct 13 20:19:05 2016
+// /___/   /\     Timestamp: Wed May 24 18:49:12 2017
 // \   \  /  \ 
 //  \___\/\___\
 //             
 // Command	: -w -sim -ofmt verilog E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/LLCR_MULT.ngc E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/LLCR_MULT.v 
-// Device	: 7k325tffg676-2
+// Device	: 7k160tffg676-1
 // Input file	: E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/LLCR_MULT.ngc
 // Output file	: E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/LLCR_MULT.v
 // # of Modules	: 1
 // Design Name	: LLCR_MULT
-// Xilinx        : D:\Xilinx\14.7\ISE_DS\ISE\
+// Xilinx        : C:\Xilinx\14.7\ISE_DS\ISE\
 //             
 // Purpose:    
 //     This verilog netlist is a verification model and uses simulation 

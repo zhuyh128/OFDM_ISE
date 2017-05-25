@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////
-// Copyright (c) 2016 Xilinx, Inc.
+// Copyright (c) 2017 Xilinx, Inc.
 // All Rights Reserved
 ///////////////////////////////////////////////////////////////////////////////
 //   ____  ____
@@ -8,7 +8,7 @@
 // \   \   \/     Version    : 14.7
 //  \   \         Application: Xilinx CORE Generator
 //  /   /         Filename   : icon0.v
-// /___/   /\     Timestamp  : Tue Nov 01 14:04:18 China Standard Time 2016
+// /___/   /\     Timestamp  : Wed May 24 19:53:58 中国标准时间 2017
 // \   \  /  \
 //  \___\/\___\
 //

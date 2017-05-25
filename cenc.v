@@ -54,8 +54,13 @@ module CENC (
     wire PCEPPU_data;
     wire PCEPPU_data_vld;
 	 
+    wire ppu_done_flag;				//Modified by baiyf
+    reg  sce_done_rst;
+    reg  pce_done_rst;
+    reg  ppu_done_rst;
 
     SCE U_SCE (
+		  .done_rst(sce_done_rst),
         .clk_i(sce_clk_i),      //% clock for input data
         .clk_o(sce_clk_o),      //% clock for output data
         .rst(sce_rst),          //% asynchronous reset, active high
@@ -67,6 +72,7 @@ module CENC (
     );
 
     PCE U_PCE(
+		  .done_rst(pce_done_rst),
         .clk(pld_clk),
         .rst(pld_rst),
         .din(pld_di),
@@ -78,13 +84,28 @@ module CENC (
 
 
     PPU U_PPU (
+		  .done_rst(ppu_done_rst),
         .clk(pld_clk),
         .rst(pld_rst),
         .di(PCEPPU_data),
         .di_vld(PCEPPU_data_vld),
         .do(pld_do),
         .do_vld(pld_do_vld),
-        .do_sym_num(pld_do_sym_num)
+        .do_sym_num(pld_do_sym_num),
+		  .done_flag(ppu_done_flag)
     );
-
+/*	 
+	 always @(posedge pld_clk) begin					//Modified by baiyf
+		if(ppu_done_flag) begin
+			sce_done_rst <= 1;
+			pce_done_rst <= 1;
+			ppu_done_rst <=1 ;
+		end
+		else begin
+         sce_done_rst <= 0;
+         pce_done_rst <= 0;
+         ppu_done_rst <= 0;
+      end
+	 end
+*/
 endmodule

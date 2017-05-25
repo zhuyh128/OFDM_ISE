@@ -54,7 +54,14 @@ module MOD (
 
 //==============================================================================
 // Wire & Reg
-
+    wire          tmu_done_flag;        //Modified by baiyf
+    wire          cmu_done_flag;
+    wire          csu_done_flag;
+    reg           tmu_done_rst;
+    reg           cmu_done_rst;
+    reg           csu_done_rst;
+   
+	 
     //--------------------------------------------------------------------------
     // TMU --> CMU
     wire  [1:0]  TMUCMU_signal_dat;
@@ -80,6 +87,7 @@ module MOD (
     //% instantiate TMU module
     TMU U_TMU (
         // input
+		  .done_rst(tmu_done_rst),
         .stmu_clk(signal_clk),   
         .stmu_rst(signal_rst),   
         .stmu_di(signal_di),    
@@ -102,6 +110,7 @@ module MOD (
     //% instantiate CMU module
     CMU U_CMU (
         // input        
+		  .done_rst(cmu_done_rst),
         .signal_clk(signal_clk),        
         .signal_rst(signal_rst),               
         .signal_di(TMUCMU_signal_dat),         
@@ -127,6 +136,7 @@ module MOD (
     //% instantiate CSU module
     CSU U_CSU (
         // input
+		  .done_rst(),
         .signal_clk(signal_clk),
         .signal_rst(signal_rst),
         .signal_di_re(CMUCSU_signal_dat_re),

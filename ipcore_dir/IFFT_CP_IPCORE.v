@@ -7,17 +7,17 @@
 // \   \   \/     Version: P.20131013
 //  \   \         Application: netgen
 //  /   /         Filename: IFFT_CP_IPCORE.v
-// /___/   /\     Timestamp: Thu Oct 13 10:59:45 2016
+// /___/   /\     Timestamp: Wed May 24 18:46:40 2017
 // \   \  /  \ 
 //  \___\/\___\
 //             
 // Command	: -w -sim -ofmt verilog E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/IFFT_CP_IPCORE.ngc E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/IFFT_CP_IPCORE.v 
-// Device	: 7k325tffg676-2
+// Device	: 7k160tffg676-1
 // Input file	: E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/IFFT_CP_IPCORE.ngc
 // Output file	: E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/IFFT_CP_IPCORE.v
 // # of Modules	: 1
 // Design Name	: IFFT_CP_IPCORE
-// Xilinx        : D:\Xilinx\14.7\ISE_DS\ISE\
+// Xilinx        : C:\Xilinx\14.7\ISE_DS\ISE\
 //             
 // Purpose:    
 //     This verilog netlist is a verification model and uses simulation 
@@ -19091,23 +19091,23 @@ s_axis_data_tdata, m_axis_data_tdata
     .I4(\blk00000001/blk00000068/blk00000069/sig000001e1 ),
     .O(\blk00000001/blk00000068/blk00000069/sig00001e23 )
   );
+  LUT3 #(
+    .INIT ( 8'h4F ))
+  \blk00000001/blk00000068/blk00000069/blk00002069  (
+    .I0(\blk00000001/blk00000068/blk00000069/sig00000320 ),
+    .I1(\blk00000001/blk00000068/blk00000069/sig000001e1 ),
+    .I2(\blk00000001/blk00000068/blk00000069/sig000002c1 ),
+    .O(\blk00000001/blk00000068/blk00000069/sig00001e28 )
+  );
   LUT5 #(
     .INIT ( 32'h0ACC0A0A ))
-  \blk00000001/blk00000068/blk00000069/blk00002069  (
+  \blk00000001/blk00000068/blk00000069/blk00002068  (
     .I0(\blk00000001/blk00000068/blk00000069/sig000002bc ),
     .I1(\blk00000001/blk00000068/blk00000069/sig0000029a ),
     .I2(\blk00000001/blk00000068/blk00000069/sig000002c1 ),
     .I3(\blk00000001/blk00000068/blk00000069/sig00000320 ),
     .I4(\blk00000001/blk00000068/blk00000069/sig000001e1 ),
     .O(\blk00000001/blk00000068/blk00000069/sig00001e24 )
-  );
-  LUT3 #(
-    .INIT ( 8'h4F ))
-  \blk00000001/blk00000068/blk00000069/blk00002068  (
-    .I0(\blk00000001/blk00000068/blk00000069/sig00000320 ),
-    .I1(\blk00000001/blk00000068/blk00000069/sig000001e1 ),
-    .I2(\blk00000001/blk00000068/blk00000069/sig000002c1 ),
-    .O(\blk00000001/blk00000068/blk00000069/sig00001e28 )
   );
   LUT5 #(
     .INIT ( 32'h0ACC0A0A ))
@@ -21334,10 +21334,10 @@ s_axis_data_tdata, m_axis_data_tdata
     .O(\blk00000001/blk00000068/blk00000069/sig0000049b )
   );
   LUT2 #(
-    .INIT ( 4'h2 ))
+    .INIT ( 4'h4 ))
   \blk00000001/blk00000068/blk00000069/blk00001f4f  (
-    .I0(\blk00000001/blk00000068/blk00000069/sig000001d8 ),
-    .I1(\blk00000001/blk00000068/blk00000069/sig000001e1 ),
+    .I0(\blk00000001/blk00000068/blk00000069/sig000001e1 ),
+    .I1(\blk00000001/blk00000068/blk00000069/sig000001d8 ),
     .O(\blk00000001/blk00000068/blk00000069/sig0000049a )
   );
   LUT2 #(
@@ -21527,10 +21527,10 @@ s_axis_data_tdata, m_axis_data_tdata
     .O(\blk00000001/blk00000068/blk00000069/sig0000041c )
   );
   LUT2 #(
-    .INIT ( 4'h2 ))
+    .INIT ( 4'h4 ))
   \blk00000001/blk00000068/blk00000069/blk00001f36  (
-    .I0(\blk00000001/sig00000088 ),
-    .I1(\blk00000001/blk00000068/blk00000069/sig000003bf ),
+    .I0(\blk00000001/blk00000068/blk00000069/sig000003bf ),
+    .I1(\blk00000001/sig00000088 ),
     .O(\blk00000001/blk00000068/blk00000069/sig0000041b )
   );
   LUT2 #(

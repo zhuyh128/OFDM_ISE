@@ -7,17 +7,17 @@
 // \   \   \/     Version: P.20131013
 //  \   \         Application: netgen
 //  /   /         Filename: CFOE_SHIFT_REG_IM.v
-// /___/   /\     Timestamp: Thu Oct 13 14:32:28 2016
+// /___/   /\     Timestamp: Wed May 24 18:02:50 2017
 // \   \  /  \ 
 //  \___\/\___\
 //             
 // Command	: -w -sim -ofmt verilog E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/CFOE_SHIFT_REG_IM.ngc E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/CFOE_SHIFT_REG_IM.v 
-// Device	: 7k325tffg676-2
+// Device	: 7k160tffg676-1
 // Input file	: E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/CFOE_SHIFT_REG_IM.ngc
 // Output file	: E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/CFOE_SHIFT_REG_IM.v
 // # of Modules	: 1
 // Design Name	: CFOE_SHIFT_REG_IM
-// Xilinx        : D:\Xilinx\14.7\ISE_DS\ISE\
+// Xilinx        : C:\Xilinx\14.7\ISE_DS\ISE\
 //             
 // Purpose:    
 //     This verilog netlist is a verification model and uses simulation 

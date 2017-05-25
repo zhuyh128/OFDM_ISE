@@ -7,17 +7,17 @@
 // \   \   \/     Version: P.20131013
 //  \   \         Application: netgen
 //  /   /         Filename: FFTU_FFT.v
-// /___/   /\     Timestamp: Thu Oct 13 16:33:05 2016
+// /___/   /\     Timestamp: Wed May 24 18:22:16 2017
 // \   \  /  \ 
 //  \___\/\___\
 //             
 // Command	: -w -sim -ofmt verilog E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/FFTU_FFT.ngc E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/FFTU_FFT.v 
-// Device	: 7k325tffg676-2
+// Device	: 7k160tffg676-1
 // Input file	: E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/FFTU_FFT.ngc
 // Output file	: E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/FFTU_FFT.v
 // # of Modules	: 1
 // Design Name	: FFTU_FFT
-// Xilinx        : D:\Xilinx\14.7\ISE_DS\ISE\
+// Xilinx        : C:\Xilinx\14.7\ISE_DS\ISE\
 //             
 // Purpose:    
 //     This verilog netlist is a verification model and uses simulation 
@@ -13355,13 +13355,13 @@ event_data_out_channel_halt, s_axis_config_tdata, s_axis_data_tdata, m_axis_data
     .O(\blk00000001/blk000000d8/sig00000291 )
   );
   LUT6 #(
-    .INIT ( 64'hAABAAAAA00AA00AA ))
+    .INIT ( 64'hAAAABAAA0000AAAA ))
   \blk00000001/blk000000d8/blk00000147  (
     .I0(\blk00000001/sig000000e0 ),
     .I1(\blk00000001/blk000000d8/sig0000024f ),
     .I2(\blk00000001/blk000000d8/sig0000024e ),
-    .I3(\blk00000001/blk000000d8/sig00000291 ),
-    .I4(\blk00000001/blk000000d8/sig00000292 ),
+    .I3(\blk00000001/blk000000d8/sig00000292 ),
+    .I4(\blk00000001/blk000000d8/sig00000291 ),
     .I5(\blk00000001/sig000000cb ),
     .O(\blk00000001/blk000000d8/sig00000293 )
   );
@@ -22666,10 +22666,10 @@ event_data_out_channel_halt, s_axis_config_tdata, s_axis_data_tdata, m_axis_data
     .O(\blk00000001/blk00000150/blk00000151/sig0000173f )
   );
   LUT2 #(
-    .INIT ( 4'h4 ))
+    .INIT ( 4'h2 ))
   \blk00000001/blk00000150/blk00000151/blk00001dee  (
-    .I0(\blk00000001/blk00000150/blk00000151/sig0000174c ),
-    .I1(\blk00000001/blk00000150/blk00000151/sig0000174f ),
+    .I0(\blk00000001/blk00000150/blk00000151/sig0000174f ),
+    .I1(\blk00000001/blk00000150/blk00000151/sig0000174c ),
     .O(\blk00000001/blk00000150/blk00000151/sig0000173e )
   );
   LUT2 #(
@@ -22736,10 +22736,10 @@ event_data_out_channel_halt, s_axis_config_tdata, s_axis_data_tdata, m_axis_data
     .O(\blk00000001/blk00000150/blk00000151/sig0000171a )
   );
   LUT2 #(
-    .INIT ( 4'h4 ))
+    .INIT ( 4'h2 ))
   \blk00000001/blk00000150/blk00000151/blk00001de4  (
-    .I0(\blk00000001/blk00000150/blk00000151/sig00001727 ),
-    .I1(\blk00000001/blk00000150/blk00000151/sig0000172a ),
+    .I0(\blk00000001/blk00000150/blk00000151/sig0000172a ),
+    .I1(\blk00000001/blk00000150/blk00000151/sig00001727 ),
     .O(\blk00000001/blk00000150/blk00000151/sig00001719 )
   );
   LUT2 #(
@@ -22789,12 +22789,12 @@ event_data_out_channel_halt, s_axis_config_tdata, s_axis_data_tdata, m_axis_data
     .O(\blk00000001/blk00000150/blk00000151/sig000013bb )
   );
   LUT4 #(
-    .INIT ( 16'h7D28 ))
+    .INIT ( 16'h3CAA ))
   \blk00000001/blk00000150/blk00000151/blk00001ddd  (
-    .I0(\blk00000001/blk00000150/blk00000151/sig00001344 ),
+    .I0(\blk00000001/blk00000150/blk00000151/sig000010cc ),
     .I1(\blk00000001/blk00000150/blk00000151/sig000010de ),
     .I2(\blk00000001/blk00000150/blk00000151/sig00001349 ),
-    .I3(\blk00000001/blk00000150/blk00000151/sig000010cc ),
+    .I3(\blk00000001/blk00000150/blk00000151/sig00001344 ),
     .O(\blk00000001/blk00000150/blk00000151/sig000013bd )
   );
   LUT4 #(
@@ -22958,12 +22958,12 @@ event_data_out_channel_halt, s_axis_config_tdata, s_axis_data_tdata, m_axis_data
     .O(\blk00000001/blk00000150/blk00000151/sig00001370 )
   );
   LUT4 #(
-    .INIT ( 16'hD782 ))
+    .INIT ( 16'hC3AA ))
   \blk00000001/blk00000150/blk00000151/blk00001dca  (
-    .I0(\blk00000001/blk00000150/blk00000151/sig00001344 ),
+    .I0(\blk00000001/blk00000150/blk00000151/sig000010de ),
     .I1(\blk00000001/blk00000150/blk00000151/sig000010cc ),
     .I2(\blk00000001/blk00000150/blk00000151/sig00001349 ),
-    .I3(\blk00000001/blk00000150/blk00000151/sig000010de ),
+    .I3(\blk00000001/blk00000150/blk00000151/sig00001344 ),
     .O(\blk00000001/blk00000150/blk00000151/sig00001383 )
   );
   LUT4 #(
@@ -23186,10 +23186,10 @@ event_data_out_channel_halt, s_axis_config_tdata, s_axis_data_tdata, m_axis_data
     .O(\blk00000001/blk00000150/blk00000151/sig00001130 )
   );
   LUT2 #(
-    .INIT ( 4'h4 ))
+    .INIT ( 4'h2 ))
   \blk00000001/blk00000150/blk00000151/blk00001daf  (
-    .I0(\blk00000001/blk00000150/blk00000151/sig0000113d ),
-    .I1(\blk00000001/blk00000150/blk00000151/sig0000113e ),
+    .I0(\blk00000001/blk00000150/blk00000151/sig0000113e ),
+    .I1(\blk00000001/blk00000150/blk00000151/sig0000113d ),
     .O(\blk00000001/blk00000150/blk00000151/sig0000112f )
   );
   LUT2 #(
@@ -23256,10 +23256,10 @@ event_data_out_channel_halt, s_axis_config_tdata, s_axis_data_tdata, m_axis_data
     .O(\blk00000001/blk00000150/blk00000151/sig0000110d )
   );
   LUT2 #(
-    .INIT ( 4'h4 ))
+    .INIT ( 4'h2 ))
   \blk00000001/blk00000150/blk00000151/blk00001da5  (
-    .I0(\blk00000001/blk00000150/blk00000151/sig0000111a ),
-    .I1(\blk00000001/blk00000150/blk00000151/sig0000111b ),
+    .I0(\blk00000001/blk00000150/blk00000151/sig0000111b ),
+    .I1(\blk00000001/blk00000150/blk00000151/sig0000111a ),
     .O(\blk00000001/blk00000150/blk00000151/sig0000110c )
   );
   LUT2 #(
@@ -23662,10 +23662,10 @@ event_data_out_channel_halt, s_axis_config_tdata, s_axis_data_tdata, m_axis_data
     .O(\blk00000001/blk00000150/blk00000151/sig00000b85 )
   );
   LUT2 #(
-    .INIT ( 4'h4 ))
+    .INIT ( 4'h2 ))
   \blk00000001/blk00000150/blk00000151/blk00001d75  (
-    .I0(\blk00000001/blk00000150/blk00000151/sig00000b92 ),
-    .I1(\blk00000001/blk00000150/blk00000151/sig00000b4f ),
+    .I0(\blk00000001/blk00000150/blk00000151/sig00000b4f ),
+    .I1(\blk00000001/blk00000150/blk00000151/sig00000b92 ),
     .O(\blk00000001/blk00000150/blk00000151/sig00000b84 )
   );
   LUT2 #(
@@ -23732,10 +23732,10 @@ event_data_out_channel_halt, s_axis_config_tdata, s_axis_data_tdata, m_axis_data
     .O(\blk00000001/blk00000150/blk00000151/sig00000b64 )
   );
   LUT2 #(
-    .INIT ( 4'h4 ))
+    .INIT ( 4'h2 ))
   \blk00000001/blk00000150/blk00000151/blk00001d6b  (
-    .I0(\blk00000001/blk00000150/blk00000151/sig00000b71 ),
-    .I1(\blk00000001/blk00000150/blk00000151/sig00000bda ),
+    .I0(\blk00000001/blk00000150/blk00000151/sig00000bda ),
+    .I1(\blk00000001/blk00000150/blk00000151/sig00000b71 ),
     .O(\blk00000001/blk00000150/blk00000151/sig00000b63 )
   );
   LUT2 #(
@@ -24204,10 +24204,10 @@ event_data_out_channel_halt, s_axis_config_tdata, s_axis_data_tdata, m_axis_data
     .O(\blk00000001/blk00000150/blk00000151/sig0000062c )
   );
   LUT2 #(
-    .INIT ( 4'h4 ))
+    .INIT ( 4'h2 ))
   \blk00000001/blk00000150/blk00000151/blk00001d32  (
-    .I0(\blk00000001/blk00000150/blk00000151/sig00000639 ),
-    .I1(\blk00000001/blk00000150/blk00000151/sig000005f6 ),
+    .I0(\blk00000001/blk00000150/blk00000151/sig000005f6 ),
+    .I1(\blk00000001/blk00000150/blk00000151/sig00000639 ),
     .O(\blk00000001/blk00000150/blk00000151/sig0000062b )
   );
   LUT2 #(
@@ -24274,10 +24274,10 @@ event_data_out_channel_halt, s_axis_config_tdata, s_axis_data_tdata, m_axis_data
     .O(\blk00000001/blk00000150/blk00000151/sig00000608 )
   );
   LUT2 #(
-    .INIT ( 4'h4 ))
+    .INIT ( 4'h2 ))
   \blk00000001/blk00000150/blk00000151/blk00001d28  (
-    .I0(\blk00000001/blk00000150/blk00000151/sig00000615 ),
-    .I1(\blk00000001/blk00000150/blk00000151/sig0000068b ),
+    .I0(\blk00000001/blk00000150/blk00000151/sig0000068b ),
+    .I1(\blk00000001/blk00000150/blk00000151/sig00000615 ),
     .O(\blk00000001/blk00000150/blk00000151/sig00000607 )
   );
   LUT2 #(
@@ -24375,10 +24375,10 @@ event_data_out_channel_halt, s_axis_config_tdata, s_axis_data_tdata, m_axis_data
     .O(\blk00000001/blk00000150/blk00000151/sig00000563 )
   );
   LUT2 #(
-    .INIT ( 4'h4 ))
+    .INIT ( 4'h2 ))
   \blk00000001/blk00000150/blk00000151/blk00001d1a  (
-    .I0(\blk00000001/blk00000150/blk00000151/sig00000364 ),
-    .I1(\blk00000001/blk00000150/blk00000151/sig00000361 ),
+    .I0(\blk00000001/blk00000150/blk00000151/sig00000361 ),
+    .I1(\blk00000001/blk00000150/blk00000151/sig00000364 ),
     .O(\blk00000001/blk00000150/blk00000151/sig00000562 )
   );
   LUT2 #(
@@ -24431,10 +24431,10 @@ event_data_out_channel_halt, s_axis_config_tdata, s_axis_data_tdata, m_axis_data
     .O(\blk00000001/blk00000150/blk00000151/sig0000054f )
   );
   LUT2 #(
-    .INIT ( 4'h4 ))
+    .INIT ( 4'h2 ))
   \blk00000001/blk00000150/blk00000151/blk00001d12  (
-    .I0(\blk00000001/blk00000150/blk00000151/sig00000558 ),
-    .I1(\blk00000001/blk00000150/blk00000151/sig0000042a ),
+    .I0(\blk00000001/blk00000150/blk00000151/sig0000042a ),
+    .I1(\blk00000001/blk00000150/blk00000151/sig00000558 ),
     .O(\blk00000001/blk00000150/blk00000151/sig0000054e )
   );
   LUT2 #(
@@ -24473,10 +24473,10 @@ event_data_out_channel_halt, s_axis_config_tdata, s_axis_data_tdata, m_axis_data
     .O(\blk00000001/blk00000150/blk00000151/sig00000533 )
   );
   LUT2 #(
-    .INIT ( 4'h4 ))
+    .INIT ( 4'h2 ))
   \blk00000001/blk00000150/blk00000151/blk00001d0c  (
-    .I0(\blk00000001/blk00000150/blk00000151/sig00000529 ),
-    .I1(\blk00000001/sig00000072 ),
+    .I0(\blk00000001/sig00000072 ),
+    .I1(\blk00000001/blk00000150/blk00000151/sig00000529 ),
     .O(\blk00000001/blk00000150/blk00000151/sig00000532 )
   );
   LUT2 #(

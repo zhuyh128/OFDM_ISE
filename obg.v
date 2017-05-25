@@ -40,10 +40,10 @@ module OBG (
 
 //==============================================================================
 // Main Body of Code
-/*	 wire ssg_done_flag;
+
 	 wire pld_done_flag;
 	 reg ssg_done_rst;
-	 reg pld_done_rst;*/
+	 reg pld_done_rst;
     //------------------------------------------------
     //% instantiate SSG module
     SSG U_SSG (
@@ -71,7 +71,7 @@ module OBG (
         );
 		 
 	always @(posedge pld_clk or posedge ssg_clk) begin
-	    if(pld_done_flag&&ssg_done_flag) begin
+	    if(pld_done_flag) begin
 		     ssg_done_rst <= 1;
 			  pld_done_rst <= 1;
 		 end

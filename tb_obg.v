@@ -173,19 +173,8 @@ module tb_obg;
             $fdisplay(obg_pld_output,"%b",pld_do);
         end
     end
-/*	 
-	 always                                        //Modified by bai
-		wait((cnt==MAX)&&(frame_num<`NF-1))			  
-		begin
-					pld_rst=1;
-					ssg_rst=1;
-					
-					#1000 pld_rst=0;
-					ssg_rst=0;
-					frame_num=frame_num+1;
-		end
-*/		
-	always @(posedge pld_clk or posedge ssg_clk) begin
+
+/*	always @(posedge pld_clk or posedge ssg_clk) begin
 		if((cnt==MAX)&&(frame_num<`NF-1)) begin
 			ssg_rst <= 1;
 			pld_rst <= 1;
@@ -194,4 +183,5 @@ module tb_obg;
 			frame_num=frame_num+1;
 		end
 	end
+*/
 endmodule

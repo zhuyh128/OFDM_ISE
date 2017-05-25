@@ -7,17 +7,17 @@
 // \   \   \/     Version: P.20131013
 //  \   \         Application: netgen
 //  /   /         Filename: CCOM_MUL1.v
-// /___/   /\     Timestamp: Thu Oct 13 17:13:52 2016
+// /___/   /\     Timestamp: Wed May 24 16:46:41 2017
 // \   \  /  \ 
 //  \___\/\___\
 //             
 // Command	: -w -sim -ofmt verilog E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/CCOM_MUL1.ngc E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/CCOM_MUL1.v 
-// Device	: 7k325tffg676-2
+// Device	: 7k160tffg676-1
 // Input file	: E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/CCOM_MUL1.ngc
 // Output file	: E:/study/projects/ise-projects/OFDM/ipcore_dir/tmp/_cg/CCOM_MUL1.v
 // # of Modules	: 1
 // Design Name	: CCOM_MUL1
-// Xilinx        : D:\Xilinx\14.7\ISE_DS\ISE\
+// Xilinx        : C:\Xilinx\14.7\ISE_DS\ISE\
 //             
 // Purpose:    
 //     This verilog netlist is a verification model and uses simulation 
