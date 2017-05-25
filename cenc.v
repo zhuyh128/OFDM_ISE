@@ -49,18 +49,23 @@ module CENC (
 // Main Body of Code
 
     //---------------------------------------------------------
+    // // FPCE --> PPU
+    // wire  FPCEPPU_data;
+    // wire  FPCEPPU_data_vld;
     
     // PCE --> PPU
     wire PCEPPU_data;
     wire PCEPPU_data_vld;
-	 
-    wire ppu_done_flag;				//Modified by baiyf
+    
+
+    wire ppu_done_flag;                     //Modified by baiyf
     reg  sce_done_rst;
     reg  pce_done_rst;
     reg  ppu_done_rst;
-
+    
+    
     SCE U_SCE (
-		  .done_rst(sce_done_rst),
+        .done_rst(sce_done_rst),
         .clk_i(sce_clk_i),      //% clock for input data
         .clk_o(sce_clk_o),      //% clock for output data
         .rst(sce_rst),          //% asynchronous reset, active high
@@ -72,7 +77,7 @@ module CENC (
     );
 
     PCE U_PCE(
-		  .done_rst(pce_done_rst),
+        .done_rst(pce_done_rst),
         .clk(pld_clk),
         .rst(pld_rst),
         .din(pld_di),
@@ -83,8 +88,16 @@ module CENC (
         );
 
 
+    // FPCE U_FPCE (
+    //     .clk(pld_clk), 
+    //     .rst(pld_rst),
+    //     .rd_en(pld_rd_en),
+    //     .do(FPCEPPU_data),
+    //     .do_vld(FPCEPPU_data_vld)
+    // );
+
     PPU U_PPU (
-		  .done_rst(ppu_done_rst),
+        .done_rst(ppu_done_rst),
         .clk(pld_clk),
         .rst(pld_rst),
         .di(PCEPPU_data),
@@ -92,20 +105,20 @@ module CENC (
         .do(pld_do),
         .do_vld(pld_do_vld),
         .do_sym_num(pld_do_sym_num),
-		  .done_flag(ppu_done_flag)
+        .done_flag(ppu_done_flag)
     );
-/*	 
-	 always @(posedge pld_clk) begin					//Modified by baiyf
-		if(ppu_done_flag) begin
-			sce_done_rst <= 1;
-			pce_done_rst <= 1;
-			ppu_done_rst <=1 ;
-		end
-		else begin
-         sce_done_rst <= 0;
-         pce_done_rst <= 0;
-         ppu_done_rst <= 0;
-      end
-	 end
-*/
+
+    always @(posedge pld_clk) begin             //Ê±ÖÓÑ¡Ôñ?
+        if(ppu_done_flag) begin
+            sce_done_rst <= 1;
+            pce_done_rst <= 1;
+            ppu_done_rst <= 1;
+        end 
+        else begin
+            sce_done_rst <= 0;
+            pce_done_rst <= 0;
+            ppu_done_rst <= 0;
+        end
+    end
+
 endmodule

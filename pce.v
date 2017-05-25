@@ -18,18 +18,17 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-module PCE(            //前级要有能保��320的fifo，编码结束将encode_busy变为0，这时候从fifo读入新的一帧编码数�    
-	 done_rst,
-    clk,                //% working clock
-    rst,                //% reset active high
-    din,                //% input origin payload data
-    din_valid,          //% input payload data valid
-    data_valid,         //% output encoded data valid 
-    encode_out,         //% output encode data
+module PCE(            //前级要有能保�?4�?4320的fifo，编码结束将encode_busy变为0，这时�?�从fifo读入新的�?帧编码数�?
+    done_rst,
+    clk,
+    rst,
+    din,
+    din_valid,
+    data_valid,
+    encode_out,
     encode_busy
     );
-    
-	 input									done_rst;
+    input                           done_rst;
     input                           clk;
     input                           rst;
     input                           din;
@@ -41,8 +40,8 @@ module PCE(            //前级要有能保��320的fifo，编码结束将encod
     
     wire                    rst_n;
     reg         [12:0]      counter;
-    wire        [12:0]      counter1;           //一方面作为写入存储信息位的inbuff的地址，另一方面作为输入到各个编码器的当前输入信息位的位�    
-	 wire        [12:0]      out_addr_indicate;
+    wire        [12:0]      counter1;           //�?方面作为写入存储信息位的inbuff的地�?，另�?方面作为输入到各个编码器的当前输入信息位的位�?
+    wire        [12:0]      out_addr_indicate;
     wire                        calculate_finish;
     reg         [3:0]           num;
     reg         [3:0]           num1;
@@ -69,7 +68,7 @@ module PCE(            //前级要有能保��320的fifo，编码结束将encod
     wire                            encode_info;
     wire                            dout1,dout2,dout3,dout4,dout5,dout6,dout7,dout8,dout9,dout10,dout11,dout12;
     
-    assign          rst_n = ~rst;
+    assign          rst_n = ~(rst||done_rst);
 
     assign          counter1 = counter;
     assign          out_addr_indicate = {num,out_addr_check};
@@ -81,10 +80,10 @@ module PCE(            //前级要有能保��320的fifo，编码结束将encod
     assign          data_valid = data_valid_infos2 || data_valid_checks2;
     assign          encode_out = (data_valid_infos2)? encode_infos2 : encode_out_reg;
     assign          encode_busy = din_valid || din_valids3 || data_valid;
-        
+          
     always @(posedge clk ) begin
-        if(!rst_n_all)  
-            counter <= 13'd0;   
+        if(!rst_n_all)
+            counter <= 13'd0;
         else begin
             if(din_valid)  begin
                 if(counter == 13'd4319)
@@ -95,9 +94,8 @@ module PCE(            //前级要有能保��320的fifo，编码结束将encod
         end
     end
 
-
     always @(posedge clk) begin
-      if(!rst_n_all)  
+        if(!rst_n_all)  
             data_valid_info <= 1'b0;
         else begin
             if((calculate_finish == 1'b1) && (out_addr_info != 13'd4320))
@@ -107,14 +105,14 @@ module PCE(            //前级要有能保��320的fifo，编码结束将encod
     end
 
 
-    always @(posedge clk) begin   //out_addr_check要从359变化�，这是因为累加结果的最高位是输出的第一�        
-		if(!rst_n_all) begin
+    always @(posedge clk) begin   //out_addr_check要从359变化�?0，这是因为累加结果的�?高位是输出的第一�?
+        if(!rst_n_all) begin
             out_addr_check <= 9'd359;
             num <= 4'd0;
         end
         else begin
-            if(data_valid_check)  begin       //在输出完信息位作为编码结果之后，开始输出校验位，这里使用data_valid_check作为整个输出过程的标�                
-				    if(out_addr_check == 9'd0) begin
+            if(data_valid_check)  begin       //在输出完信息位作为编码结果之后，�?始输出校验位，这里使用data_valid_check作为整个输出过程的标�?
+                if(out_addr_check == 9'd0) begin
                     out_addr_check <= 9'd359;
                     num <= num + 1'b1;
                 end
@@ -127,8 +125,8 @@ module PCE(            //前级要有能保��320的fifo，编码结束将encod
         end
     end
     
-    always @(posedge clk) begin   //num1为num的延�        
-		if(!rst_n_all) begin
+    always @(posedge clk) begin   //num1为num的延�?
+        if(!rst_n_all) begin
             num1 <= 4'b0;
         end
         else begin
@@ -136,8 +134,8 @@ module PCE(            //前级要有能保��320的fifo，编码结束将encod
         end
     end
     
-    always @(posedge clk) begin   //data_valid_infos1为data_valid_info的延�        
-	 if(!rst_n_all) begin
+    always @(posedge clk) begin   //data_valid_infos1为data_valid_info的延�?
+        if(!rst_n_all) begin
             data_valid_infos1 <= 1'b0;
         end
         else begin
@@ -145,8 +143,8 @@ module PCE(            //前级要有能保��320的fifo，编码结束将encod
         end
     end
 
-    always @(posedge clk) begin   //data_valid_infos2为data_valid_infos1的延�        
-	 if(!rst_n_all) begin
+    always @(posedge clk) begin   //data_valid_infos2为data_valid_infos1的延�?
+        if(!rst_n_all) begin
             data_valid_infos2 <= 1'b0;
         end
         else begin
@@ -154,8 +152,8 @@ module PCE(            //前级要有能保��320的fifo，编码结束将encod
         end
     end
 
-    always @(posedge clk) begin   //data_valid_checks1为data_valid_check的延�        
-	 if(!rst_n_all) begin
+    always @(posedge clk ) begin   //data_valid_checks1为data_valid_check的延�?
+        if(!rst_n_all) begin
             data_valid_checks1 <= 1'b0;
         end
         else begin
@@ -163,8 +161,8 @@ module PCE(            //前级要有能保��320的fifo，编码结束将encod
         end
     end
 
-    always @(posedge clk) begin   //data_valid_checks2为data_valid_checks1的延�       
-	 if(!rst_n_all) begin
+    always @(posedge clk) begin   //data_valid_checks2为data_valid_checks1的延�?
+        if(!rst_n_all) begin
             data_valid_checks2 <= 1'b0;
         end
         else begin
@@ -172,8 +170,8 @@ module PCE(            //前级要有能保��320的fifo，编码结束将encod
         end
     end
 
-    always @(posedge clk) begin   //encode_infos1为encode_info的延�        
-	 if(!rst_n_all) begin
+    always @(posedge clk) begin   //encode_infos1为encode_info的延�?
+        if(!rst_n_all) begin
             encode_infos1 <= 1'b0;
         end
         else begin
@@ -181,8 +179,8 @@ module PCE(            //前级要有能保��320的fifo，编码结束将encod
         end
     end
 
-    always@(posedge clk)    begin   //encode_infos2为encode_infos1的延�            
-	 if(!rst_n_all)  begin
+    always@(posedge clk)    begin   //encode_infos2为encode_infos1的延�?
+            if(!rst_n_all)  begin
                 encode_infos2 <= 1'b0;
             end
         else  begin
@@ -190,8 +188,8 @@ module PCE(            //前级要有能保��320的fifo，编码结束将encod
             end
     end
 
-    always@(posedge clk ) begin   //din_valids1为din_valid的延�        
-	 if(!rst_n_all) begin
+    always@(posedge clk) begin   //din_valids1为din_valid的延�?
+        if(!rst_n_all) begin
             din_valids1 <= 1'b0;
         end
         else begin
@@ -199,8 +197,8 @@ module PCE(            //前级要有能保��320的fifo，编码结束将encod
         end
     end
 
-    always@(posedge clk) begin   //din_valids2为din_valids1的延�       
-	 if(!rst_n_all) begin
+    always@(posedge clk) begin   //din_valids2为din_valids1的延�?
+        if(!rst_n_all) begin
             din_valids2 <= 1'b0;
         end
         else begin
@@ -208,8 +206,8 @@ module PCE(            //前级要有能保��320的fifo，编码结束将encod
         end
     end
 
-    always@(posedge clk ) begin   //din_valids3为din_valids2的延�       
-	 if(!rst_n_all) begin
+    always@(posedge clk) begin   //din_valids3为din_valids2的延�?
+        if(!rst_n_all) begin
             din_valids3 <= 1'b0;
         end
         else begin
@@ -217,17 +215,15 @@ module PCE(            //前级要有能保��320的fifo，编码结束将encod
         end
     end
     
-    
-    
     always@(posedge clk) begin
         if(!rst_n_all) begin
             out_addr_info <= 13'b0;
             data_valid_check <= 1'b0;
         end
         else  begin
-            if(calculate_finish) begin           //在叠加计算结束之后才开始输出信息位
+            if(calculate_finish) begin           //在叠加计算结束之后才�?始输出信息位
                 if((out_addr_info == 13'd4320) && (out_addr_indicate != 13'h1600))
-                    data_valid_check <= 1'b1;           //这里不将out_addr_info置零，只在重置信号的时候变�
+                    data_valid_check <= 1'b1;           //这里不将out_addr_info置零，只在重置信号的时�?�变�?0
                 else begin
                     data_valid_check <= 1'b0;
                     out_addr_info <= out_addr_info + 1'b1;
@@ -241,7 +237,7 @@ module PCE(            //前级要有能保��320的fifo，编码结束将encod
     end
     
     
-    always@(posedge clk )    begin
+    always@(posedge clk)    begin
         if(!rst_n_all)
             encode_out_reg <= 1'b0;
         else  begin
@@ -261,14 +257,15 @@ module PCE(            //前级要有能保��320的fifo，编码结束将encod
             endcase
         end
     end
-	 
-    inbuff inbuff_inst(     //4320 information bits，一边编码，一边写入inbuff，也就是说din_valid可以作为它的写入wea信号
+
+    
+    inbuff inbuff_inst(     //4320 information bits，一边编码，�?边写入inbuff，也就是说din_valid可以作为它的写入wea信号
         .clka(clk),
         .wea(din_valid),
         .addra(counter1),
         .dina(din),
         .clkb(clk),
-        .addrb(out_addr_info1),             //最终输出编码结果的时候，先要读出原始信息位，这里为读出地址，也是先入先出的 0-4319
+        .addrb(out_addr_info1),             //�?终输出编码结果的时�?�，先要读出原始信息位，这里为读出地�?，也是先入先出的 0-4319
         .doutb(encode_info)         
     );
 
@@ -341,7 +338,7 @@ module PCE(            //前级要有能保��320的fifo，编码结束将encod
 
     encoder7 encoder_inst7(
         .clk(clk),
-        .rst_n(!done_rst||rst_n_all),
+        .rst_n(rst_n_all),
         .din_valid(din_valid),
         .din(din),      //1bit
         .counter(counter1),

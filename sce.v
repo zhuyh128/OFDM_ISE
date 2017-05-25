@@ -17,7 +17,7 @@
 //% @note clk_i & clk_o should have the same phase, and Fclk_o = 3*Fclk_i ! 
 //% 
 module SCE (
-	 input					done_rst,
+    input               done_rst,
     input               clk_i,      //% clock for input data
     input               clk_o,      //% clock for output data
     input               rst,        //% asynchronous reset to clk_i, active high
@@ -50,9 +50,9 @@ module SCE (
     reg     dat_vld;    //% local tmp data valid
     //% align the dat & dat_vld
     always @(posedge clk_i or posedge rst or posedge done_rst) begin
-        if (rst||done_rst) begin
+        if (rst||done_rst) begin                              
             // reset
-            dat_vld <= 0;
+            dat_vld <= 0;                                      
         end
         else begin
             dat_vld <= di_vld;
@@ -98,7 +98,7 @@ module SCE (
             end
         end
     end
-	 
+
     reg         enc_dat_vld;    //% encoded data valid flag
     //% align the enc_dat & enc_dat_vld
     always @(posedge clk_i or posedge rst or posedge done_rst) begin
@@ -270,7 +270,7 @@ module SCE (
 
     //% ouptut do
     always @(posedge clk_o or posedge rst or posedge done_rst) begin
-        if (rst) begin
+        if (rst||done_rst) begin
             // reset
             do <= 0;
         end
@@ -283,5 +283,7 @@ module SCE (
     always @(posedge clk_o) begin
         do_vld <= rd_en;
     end
+ 
 
+    
 endmodule

@@ -16,22 +16,22 @@
 //% @note length of input bits is 8640, and the padding bits is the first 960 
 //%       bits of it.
 module PPU (
-	 input					done_rst,
-    input               clk,        //% working clock
-    input               rst,        //% reset, active high
-    input               di,         //% input encoded data of payload
-    input               di_vld,     //% input data valid
-    output  reg         do,         //% output data
-    output  reg         do_vld,     //% output data valid
+    input               done_rst,
+    input               clk,
+    input               rst,
+    input               di,
+    input               di_vld,
+    output  reg         do,
+    output  reg         do_vld,
     output  reg  [3:0]  do_sym_num,  // number of payload symbol = 5
-	 output  reg         done_flag
-	 );
-
+    output  reg         done_flag
+    );
+    
+    reg neg_do_vld;                 //Modified by baiyf
+    
 //==============================================================================
 // Main Body of Code
-	 
-	 reg neg_do_vld;						//Modified by baiyf
-	 
+
     //----------------------------------
     // write first 960 bits into FIFO
 
@@ -48,7 +48,7 @@ module PPU (
             end
             else begin
                 di_cnt <= 14'd0;
-            end	
+            end
         end
     end
 
@@ -95,8 +95,7 @@ module PPU (
             rd_en <= 0;
         end
         else begin
-            if (di_cnt == 14'd8638) 
-				begin                    
+            if (di_cnt == 14'd8638) begin
                 rd_en <= 1;
             end
             if (empty) begin
@@ -150,20 +149,20 @@ module PPU (
             do_vld <= data_vld || valid;
         end
     end
-	
-	always @(posedge clk) begin														//Modified by baiyf
-		neg_do_vld <= !do_vld;
-	end
-	
-	always @(posedge neg_do_vld or posedge done_rst or posedge rst) begin
-		if(rst||done_rst) begin
-			done_flag <= 0;
-		end
-		else begin
-			done_flag <= 1;
-		end
-	end
-	
+
+    always @(posedge clk) begin                 //Modified by baiyf
+        neg_do_vld <= !do_vld;
+    end
+    
+    always @(posedge neg_do_vld or posedge done_rst or posedge rst) begin 
+        if(rst||done_rst) begin
+            done_flag <= 0;
+        end
+        else begin
+            done_flag <= 1;
+        end
+    end
+  
     //----------------------------------------
     PPU_FIFO U_PPU_FIFO (
         .wr_clk(clk),  // input wire wr_clk
